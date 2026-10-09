@@ -97,9 +97,17 @@ section { padding-block: clamp(64px, 10vw, 120px); }
 
 /* services */
 .services { list-style: none; margin: 32px 0 0; padding: 0; display: grid; border-top: 2px solid var(--ink); }
-.services li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.services strong { font: 700 1.35rem/1.1 var(--display); text-transform: uppercase; letter-spacing: 0.02em; }
+.services li { border-bottom: 1px solid var(--line); }
+/* each row is a <details>: the <summary> is the clickable line, the <p> is the description it opens */
+.services summary { display: grid; grid-template-columns: minmax(0, 1fr) auto 1.25rem; gap: 16px; align-items: baseline; padding: 16px 0; cursor: pointer; list-style: none; }
+.services summary::-webkit-details-marker { display: none; }
+.services summary::after { content: "+"; grid-column: 3; justify-self: end; font: 500 1.4rem/1 var(--mono); color: var(--accent); }
+.services details[open] summary::after { content: "−"; }
+.services summary:hover strong { color: var(--accent); }
+.services summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.services strong { font: 700 1.35rem/1.1 var(--display); text-transform: uppercase; letter-spacing: 0.02em; transition: color 0.15s; }
 .services .label { color: var(--accent); }
+.services details p { padding: 0 2.5rem 18px 0; color: var(--muted); max-width: 62ch; }
 .growing { margin-top: 22px; color: var(--muted); max-width: 62ch; }
 .growing b { color: var(--ink); font-weight: 600; }
 
