@@ -121,6 +121,13 @@ section { padding-block: clamp(64px, 10vw, 120px); }
 .fleet dd { margin: 0; font: 700 1.3rem/1.15 var(--display); text-transform: uppercase; letter-spacing: 0.02em; }
 .fleet-note { margin-top: 18px; color: var(--muted); max-width: 62ch; }
 
+/* crew */
+.crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 44px; }
+.crew > div { background: var(--surface); border: 1px solid var(--line); padding: 20px; display: grid; gap: 6px; align-content: start; }
+.crew b { font: 800 1.5rem/1.05 var(--display); text-transform: uppercase; letter-spacing: 0.02em; }
+.crew .label { color: var(--accent); }
+.crew p { margin-top: 4px; font-size: 0.95rem; color: var(--muted); }
+
 /* clients */
 .clients { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
 .clients div { background: var(--surface); border: 1px solid var(--line); padding: 18px; display: grid; gap: 6px; align-content: start; }
@@ -129,11 +136,11 @@ section { padding-block: clamp(64px, 10vw, 120px); }
 
 @media (max-width: 860px) {
   .fleet { grid-template-columns: minmax(0, 1fr); }
-  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .clients, .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 480px) {
   .fleet div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
-  .clients { grid-template-columns: minmax(0, 1fr); }
+  .clients, .crew { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* crew band */
